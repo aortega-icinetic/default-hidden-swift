@@ -13,7 +13,7 @@ class BooleanField: SwitchInputView, Field {
     var value: AnyObject?
     var required = false
     
-    init(name: String, label: String, value: AnyObject? = nil) {
+    init(name: String, label: String, readOnly: Bool = false, value: AnyObject? = nil) {
         super.init()
         self.name = name
         self.value = value
@@ -25,6 +25,10 @@ class BooleanField: SwitchInputView, Field {
         let tapGesture = UITapGestureRecognizer(target: self,
                                                 action: #selector(fieldTapAction))
         tapGesture.numberOfTapsRequired = 1
+        if readOnly {
+            tapGesture.enabled = false
+            self.backgroundColor = Style.sharedInstance.foregroundColor.colorWithAlphaComponent(Colors.Alphas.disabled)
+        }
         addGestureRecognizer(tapGesture)
         
         reset()

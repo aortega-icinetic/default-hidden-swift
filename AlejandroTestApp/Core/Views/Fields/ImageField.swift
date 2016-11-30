@@ -17,7 +17,7 @@ class ImageField: ImageInputView, Field {
     
     var rules: [Rule] = []
     
-    init(name: String, label: String, required: Bool, viewController: UIViewController, value: AnyObject? = nil) {
+    init(name: String, label: String, required: Bool, readOnly: Bool = false, viewController: UIViewController, value: AnyObject? = nil) {
         super.init()
         self.name = name
         self.value = value
@@ -33,6 +33,10 @@ class ImageField: ImageInputView, Field {
         let tapGesture = UITapGestureRecognizer(target: self,
                                                 action: #selector(fieldTapAction))
         tapGesture.numberOfTapsRequired = 1
+        if readOnly {
+            tapGesture.enabled = false
+            self.backgroundColor = Style.sharedInstance.foregroundColor.colorWithAlphaComponent(Colors.Alphas.disabled)
+        }
         addGestureRecognizer(tapGesture)
         
         reset()

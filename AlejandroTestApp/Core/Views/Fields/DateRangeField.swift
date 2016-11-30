@@ -23,7 +23,7 @@ class DateRangeField: RangeInputView, Field {
     
     var rules: [Rule] = []
     
-    init(name: String, label: String, required: Bool = false, value: AnyObject? = nil) {
+    init(name: String, label: String, required: Bool = false, readOnly: Bool = false, value: AnyObject? = nil) {
         super.init()
         self.name = name
         self.value = value
@@ -52,6 +52,13 @@ class DateRangeField: RangeInputView, Field {
         endField.addTarget(self, action: #selector(editingDidBeginAction), forControlEvents: .EditingDidBegin)
         endField.addTarget(self, action: #selector(editingDidEndAction), forControlEvents: .EditingDidEnd)
         endField.inputView = datePicker
+        
+        if readOnly {
+            datePicker.enabled = false
+            startField.enabled = false
+            endField.enabled = false
+            self.backgroundColor = Style.sharedInstance.foregroundColor.colorWithAlphaComponent(Colors.Alphas.disabled)
+        }
         
         reset()
     }

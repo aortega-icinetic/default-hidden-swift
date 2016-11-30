@@ -12,7 +12,7 @@ class CreateBehavior<U: FormViewController, T:Item>: NSObject, Behavior {
 
     var viewController: UIViewController!
     
-    var formViewController: FormViewController!
+    var formViewController: U!
     
     var dataDelegate: DataDelegate!
  
@@ -20,12 +20,9 @@ class CreateBehavior<U: FormViewController, T:Item>: NSObject, Behavior {
     
     var syncService: DatasouceSync!
     
-    var item: T?
-    
-    init(viewController: UIViewController, item: T) {
+    init(viewController: UIViewController) {
         super.init()
         self.viewController = viewController
-        self.item = item
         dataDelegate = viewController as? DataDelegate
         crudService = dataDelegate?.datasource as? CRUD
         syncService = dataDelegate?.datasource as? DatasouceSync
@@ -50,7 +47,7 @@ class CreateBehavior<U: FormViewController, T:Item>: NSObject, Behavior {
     }
     
     func openForm() {
-        formViewController.item = item
+        formViewController.item = formViewController.defaultItem()
         let navigationController = UINavigationController(rootViewController: formViewController)
         viewController.presentViewController(navigationController, animated: true, completion: nil)
     }

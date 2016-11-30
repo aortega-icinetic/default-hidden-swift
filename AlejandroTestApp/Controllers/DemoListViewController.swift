@@ -31,7 +31,7 @@ class DemoListViewController: TableViewController<DataDBDSItem>, UITableViewData
         tableView.delegate = self
         tableView.registerClass(Cell.self, forCellReuseIdentifier: Cell.identifier)
         
-		behaviors.append(CreateBehavior<DemoListFormViewController, DataDBDSItem>(viewController: self, item: defaultItem()))
+		behaviors.append(CreateBehavior<DemoListFormViewController, DataDBDSItem>(viewController: self))
 
         for behavior in self.behaviors {
             behavior.load()
@@ -42,12 +42,7 @@ class DemoListViewController: TableViewController<DataDBDSItem>, UITableViewData
         loadData()					
     }
     
-    func defaultItem() -> DataDBDSItem {
-        let item = DataDBDSItem()
-        item.integer = 10000
-        item.dataField0 = 6.6666
-        return item
-    }
+
     
     
 	//MARK: - <UITableViewDataSource>

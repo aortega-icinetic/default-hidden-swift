@@ -26,6 +26,7 @@ class StringField: TextInputView, Field {
         self.label?.text = label
         if readOnly {
             field.enabled = false
+            self.backgroundColor = Style.sharedInstance.foregroundColor.colorWithAlphaComponent(Colors.Alphas.disabled)
         }
         field.placeholder = label
         field.addTarget(self, action: #selector(editingDidEndAction), forControlEvents: .EditingDidEnd)

@@ -21,7 +21,7 @@ class LocationField: LocationInputView, Field {
     var lat: Double?
     var lng: Double?
     
-    init(name: String, label: String, required: Bool = false, viewController: UIViewController, value: AnyObject? = nil) {
+    init(name: String, label: String, required: Bool = false, readOnly: Bool = false, viewController: UIViewController, value: AnyObject? = nil) {
         super.init()
         
         self.name = name
@@ -45,6 +45,13 @@ class LocationField: LocationInputView, Field {
         lngField.addTarget(self, action: #selector(editingChangedAction), forControlEvents: .EditingChanged)
         
         locationButton?.addTarget(self, action: #selector(locationButtonAction), forControlEvents: .TouchUpInside)
+        
+        if readOnly {
+            latField.enabled = false
+            lngField.enabled = false
+            locationButton.enabled = false
+            self.backgroundColor = Style.sharedInstance.foregroundColor.colorWithAlphaComponent(Colors.Alphas.disabled)
+        }
         
         reset()
     }

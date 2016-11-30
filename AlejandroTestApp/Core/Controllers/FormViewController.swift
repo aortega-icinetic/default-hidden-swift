@@ -105,4 +105,8 @@ class FormViewController: InputViewController {
         }
         retrieveResponders()
     }
+    
+    func defaultItem() -> Item? {
+        return nil
+    }
 }
