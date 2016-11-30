@@ -9,8 +9,8 @@ import Foundation
 
 class DecimalField: StringField {
     
-    override init(name: String, label: String, required: Bool = false, value: AnyObject? = nil) {
-        super.init(name: name, label: label, required: required, value: value)
+    override init(name: String, label: String, required: Bool = false, readOnly: Bool = false, value: AnyObject? = nil) {
+        super.init(name: name, label: label, required: required, readOnly: readOnly, value: value)
         
         rules.append(DecimalRule())
         field.keyboardType = .NumbersAndPunctuation

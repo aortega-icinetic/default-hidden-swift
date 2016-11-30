@@ -13,8 +13,10 @@ class DemoListFormViewController: FormViewController {
         super.viewDidLoad()
 
 		AnalyticsManager.sharedInstance?.analytics?.logPage("")
-		let item = self.item as? DataDBDSItem
-    
+		
+        let item = self.item as? DataDBDSItem
+        
+        
 		let textField = StringField(name: DataDBDSItemMapping.text, label: "Text", required: false, value: item?.text)
         contentView.addSubview(textField)
 		

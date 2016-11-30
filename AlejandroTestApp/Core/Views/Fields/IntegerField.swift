@@ -9,8 +9,8 @@ import Foundation
 
 class IntegerField: StringField {
     
-    override init(name: String, label: String, required: Bool = false, value: AnyObject? = nil) {
-        super.init(name: name, label: label, required: required, value: value)
+    override init(name: String, label: String, required: Bool = false, readOnly: Bool = false, value: AnyObject? = nil) {
+        super.init(name: name, label: label, required: required, readOnly: readOnly, value: value)
         
         rules.append(IntegerRule())
         field.keyboardType = .NumbersAndPunctuation

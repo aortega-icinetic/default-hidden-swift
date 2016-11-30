@@ -40,6 +40,9 @@ public class DataDBDSItem : Item {
 		return identifier
 	}
 	
+    public init() {
+    }
+    
 	required public init?(dictionary: NSDictionary?) {
     
         retrieve(dictionary)

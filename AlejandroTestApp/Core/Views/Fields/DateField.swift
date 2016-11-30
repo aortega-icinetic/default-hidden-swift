@@ -15,8 +15,8 @@ class DateField: StringField {
     let jsonFormatter = NSDateFormatter()
     var datePicker: UIDatePicker!
     
-    override init(name: String, label: String, required: Bool = false, value: AnyObject? = nil) {
-        super.init(name: name, label: label, required: required, value: value)
+    override init(name: String, label: String, required: Bool = false, readOnly: Bool = false, value: AnyObject? = nil) {
+        super.init(name: name, label: label, required: required, readOnly: readOnly, value: value)
         
         jsonFormatter.dateFormat = kDateFormat_ISO8601
         

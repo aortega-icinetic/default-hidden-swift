@@ -15,7 +15,7 @@ class StringField: TextInputView, Field {
     
     var rules: [Rule] = []
     
-    init(name: String, label: String, required: Bool = false, value: AnyObject? = nil) {
+    init(name: String, label: String, required: Bool = false, readOnly: Bool = false, value: AnyObject? = nil) {
         super.init()
         self.name = name
         self.value = value
@@ -24,6 +24,9 @@ class StringField: TextInputView, Field {
             rules.append(RequiredRule())
         }
         self.label?.text = label
+        if readOnly {
+            field.enabled = false
+        }
         field.placeholder = label
         field.addTarget(self, action: #selector(editingDidEndAction), forControlEvents: .EditingDidEnd)
         field.addTarget(self, action: #selector(editingChangedAction), forControlEvents: .EditingChanged)

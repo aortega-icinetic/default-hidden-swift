@@ -9,8 +9,8 @@ import Foundation
 
 class DateTimeField: DateField {
 
-    override init(name: String, label: String, required: Bool = false, value: AnyObject? = NSDate()) {
-        super.init(name: name, label: label, required: required, value: value)
+    override init(name: String, label: String, required: Bool = false, readOnly: Bool = false, value: AnyObject? = NSDate()) {
+        super.init(name: name, label: label, required: required, readOnly: readOnly, value: value)
         
         formatter.timeStyle = .ShortStyle
         
