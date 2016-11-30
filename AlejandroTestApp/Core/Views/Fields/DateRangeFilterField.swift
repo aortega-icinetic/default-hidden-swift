@@ -15,7 +15,7 @@ class DateRangeFilterField: DateRangeField {
         super.init(coder: aDecoder)
     }
     
-    init(datasource: Datasource, name: String, label: String, readOnly: Bool = false , value: AnyObject?) {
+    init(datasource: Datasource, name: String, label: String, readOnly: Bool = false, value: AnyObject?) {
         super.init(name: name, label: label, required: false, readOnly: readOnly, value: value)
         self.datasource = datasource
     }

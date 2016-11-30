@@ -31,6 +31,7 @@ class TristateField: TristateInputView, Field {
             tapGesture.enabled = false;
             self.backgroundColor = Style.sharedInstance.foregroundColor.colorWithAlphaComponent(Colors.Alphas.disabled)
         }
+        
         addGestureRecognizer(tapGesture)
         
         reset()

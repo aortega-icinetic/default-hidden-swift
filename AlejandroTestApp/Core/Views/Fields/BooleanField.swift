@@ -25,10 +25,12 @@ class BooleanField: SwitchInputView, Field {
         let tapGesture = UITapGestureRecognizer(target: self,
                                                 action: #selector(fieldTapAction))
         tapGesture.numberOfTapsRequired = 1
+        
         if readOnly {
             tapGesture.enabled = false
             self.backgroundColor = Style.sharedInstance.foregroundColor.colorWithAlphaComponent(Colors.Alphas.disabled)
         }
+        
         addGestureRecognizer(tapGesture)
         
         reset()

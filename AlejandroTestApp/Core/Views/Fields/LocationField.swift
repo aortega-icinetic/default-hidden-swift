@@ -52,7 +52,7 @@ class LocationField: LocationInputView, Field {
             locationButton.enabled = false
             self.backgroundColor = Style.sharedInstance.foregroundColor.colorWithAlphaComponent(Colors.Alphas.disabled)
         }
-        
+            
         reset()
     }
     

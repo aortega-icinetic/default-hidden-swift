@@ -16,7 +16,7 @@ class StringFilterField: StringField {
     }
     
     init(datasource: Datasource, name: String, label: String, readOnly: Bool = false, value: AnyObject?) {
-        super.init(name: name, label: label, required: false, readOnly: readOnly , value: value)
+        super.init(name: name, label: label, required: false, readOnly: readOnly, value: value)
         self.datasource = datasource
     }
 }

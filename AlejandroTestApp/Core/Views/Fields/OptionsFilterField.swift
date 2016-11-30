@@ -16,8 +16,8 @@ class OptionsFilterField: OptionsField {
         super.init(coder: aDecoder)
     }
     
-    init(datasource: Datasource, datasourceOptions: DatasourceOptions?, name: String, label: String, viewController: UIViewController, options: [String : String]? = nil, value: AnyObject? = nil) {
-        super.init(name: name, label: label, required: false, viewController: viewController, options: options, value: value)
+    init(datasource: Datasource, datasourceOptions: DatasourceOptions?, name: String, label: String, readOnly: Bool = false, viewController: UIViewController, options: [String : String]? = nil, value: AnyObject? = nil) {
+        super.init(name: name, label: label, required: false, readOnly: readOnly, viewController: viewController, options: options, value: value)
         self.datasource = datasource
         self.datasourceOptions = datasourceOptions
         

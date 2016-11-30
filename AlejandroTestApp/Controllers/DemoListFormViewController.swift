@@ -17,11 +17,11 @@ class DemoListFormViewController: FormViewController {
         let item = self.item as? DataDBDSItem
         
         
-		let textField = StringField(name: DataDBDSItemMapping.text, label: "Text", required: false, readOnly: true, value: item?.text)
+        let textField = StringField(name: DataDBDSItemMapping.text, label: "Text", required: false, readOnly: true, value: item?.text)
         contentView.addSubview(textField)
 		
-		let integerField = IntegerField(name: DataDBDSItemMapping.integer, label: "Integer", required: false, readOnly: false, value: item?.integer)
-        contentView.addSubview(integerField)
+		/*let integerField = IntegerField(name: DataDBDSItemMapping.integer, label: "Integer", required: false, readOnly: false, value: item?.integer)
+        contentView.addSubview(integerField)*/
 		
         let pictureField = ImageField(name: DataDBDSItemMapping.picture, label: "Picture", required: false, readOnly: false, viewController: self, value: crudService?.imagePath(item?.picture))
         contentView.addSubview(pictureField)
@@ -38,7 +38,7 @@ class DemoListFormViewController: FormViewController {
         let dataField1Field = TristateField(name: DataDBDSItemMapping.dataField1, label: "Boolean", readOnly: false, value: item?.dataField1)
         contentView.addSubview(dataField1Field)
 		
-        let locationField = LocationField(name: DataDBDSItemMapping.location, label: "Location", required: false, readOnly: false, viewController: self, value: item?.location)
+        let locationField = LocationField(name: DataDBDSItemMapping.location, label: "Location", required: false, readOnly: false,viewController: self, value: item?.location)
         contentView.addSubview(locationField)
 		
        
