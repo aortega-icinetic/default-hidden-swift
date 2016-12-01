@@ -41,6 +41,7 @@ class DemoListFormViewController: FormViewController {
         let locationField = LocationField(name: DataDBDSItemMapping.location, label: "Location", required: false, readOnly: false,viewController: self, value: item?.location)
         contentView.addSubview(locationField)
 		
+        formValues[DataDBDSItemMapping.integer] = item?.integer
        
         updateViewConstraints()
         
